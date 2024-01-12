@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  learn_postgresql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: 'postgresql'
+    ports:
+      - '5433:5432'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'password'
+      POSTGRES_DB: 'postgres'
+      PGDATA: '/postgres/16/data'
+      SERVER_NAME: 'pg_standalone'
+    #volumes:
+    #  - ./init:/docker-entrypoint-initdb.d/
+    #  - ~/docker-vols/pg16_3:/postgres/16/data
